@@ -22,28 +22,35 @@ img {
 
 /* || GENERAL STYLES */
 body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.d-card {
+  padding: 5rem 0;
   background-color: var(--BODY-BG);
-  min-height: 100vh;
+  flex-grow: 1;
 }
 
 .card {
   display: flex;
+  flex-direction: column-reverse;
+  width: min(90%, 720px);
   background-color: var(--CARD-BG);
   margin: auto;
   border-radius: 0.5rem;
 }
 
 .texts {
-  padding: 4.5rem 5rem;
+  padding: 2.7rem;
+  text-align: center;
 }
 
 .heading {
   color: var(--HEADING-COLOR);
   font-weight: 700;
-  font-size: 2.25rem;
-  inline-size: 400px;
+  font-size: 1.7rem;
 }
 
 .highlight {
@@ -52,7 +59,6 @@ body {
 
 .details {
   font-size: 15px;
-  inline-size: 350px;
   color: var(--MAIN-P-COLOR);
   margin: 1.5rem 0 4rem;
   line-height: 1.5rem;
@@ -60,16 +66,43 @@ body {
 
 .stats {
   display: flex;
-  gap: 4rem;
-  text-transform: uppercase;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .stat-number {
-  color: var(--STATS-HEADING);
+  color: var(--HEADING-COLOR);
   font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.stat-text {
+  color: var(--MAIN-P-COLOR);
+  font-family: "Lexend Deca", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+/* || IMAGES */
+.main-image {
+  background-color: var(--ACCENT-COLOR);
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .mobile-image {
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+  mix-blend-mode: multiply;
+}
+
+.desktop-image {
   display: none;
 }
 /* || FOOTER */
@@ -79,4 +112,54 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* || MOBILE */
+@media screen and (min-width: 560px) {
+  .stats {
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card {
+    flex-direction: row;
+    justify-content: space-between;
+    width: min(80%, 1088px);
+    margin-top: 3rem;
+  }
+  .texts {
+    padding-top: 4rem;
+    text-align: left;
+    width: 50%;
+  }
+  .heading {
+    font-size: 2.3rem;
+  }
+  .details {
+    font-size: 1.1rem;
+  }
+  .stats {
+    justify-content: flex-start;
+  }
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  .stat-text {
+    font-size: 1rem;
+  }
+  /* || IMAGE */
+  .main-image {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .mobile-image {
+    display: none;
+  }
+  .desktop-image {
+    display: block;
+    width: 100%;
+    mix-blend-mode: multiply;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
 }
